@@ -1,24 +1,24 @@
-gói  Cuối cùng ;
+package Finally;
 
-nhập  java.io.IOException ;
-nhập  java.nio.file.FileAlreadyExistsException ;
-nhập  java.nio.file.Files ;
-nhập  java.nio.file.Paths ;
+import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-public  class  CheckedExceptionSample {
-	public  static  void  main ( String [] args ) ném  InterruptException {
-		Chủ đề . ngủ ( 1000 );
-		thử {
-			Các tập tin . CreateFile ( Paths . nhận được ( " students.txt " ));
-		} catch ( FileAlreadyExistsException e) {
-			Hệ thống . ra ngoài . println ( " Đã có Tệp " );
-			Hệ thống . ra ngoài . println (e . toString ());
-		} catch ( IOException e) {
-			e . printStackTrace ();
-			Hệ thống . ra ngoài . println ( " mã lệnh: "  + e . toString ());
-		} cuối cùng {
-			Hệ thống . ra ngoài . println ( " Luôn được thực thi " );
+public class CheckedExceptionSample {
+	public static void main(String[] args) throws InterruptedException{
+		Thread.sleep(1000);
+		try {
+			Files.createFile(Paths.get("students.txt"));
+		}catch(FileAlreadyExistsException e){
+			System.out.println("File Already");
+			System.out.println(e.toString());
+		}catch(IOException e) {
+			e.printStackTrace();
+			System.out.println("excrption:" + e.toString());
+		}finally {
+			System.out.println("Always executed");
 		}
-		Hệ thống . ra ngoài . println ( " Sau khi ngoại lệ " );
+		System.out.println("After exception");
 	}
 }
