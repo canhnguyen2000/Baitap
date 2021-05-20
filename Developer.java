@@ -11,4 +11,4 @@ public class Developer extends Employee{
 	public void work(String location) throws ArithmeticException{
 		
 	}
-}
+}	
